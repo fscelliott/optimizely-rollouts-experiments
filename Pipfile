@@ -1,0 +1,12 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+requests = {index = "https://asa.schachar:AKCp5bAtJZfuNnCbKsneZyr7QMwZ2uPpqJapgh1vxwoEnu1Aa39sAnys1BTKbNZbQngUx3MoA@optimizely.jfrog.io/optimizely/api/pypi/pypi/simple",version = "*"}
+
+[requires]
+python_version = "3.7"
