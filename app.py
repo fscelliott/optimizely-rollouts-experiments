@@ -1,7 +1,20 @@
+import requests
+from optimizely import optimizely
 from functools import reduce
 
+DATAFILE_URL = 'https://cdn.optimizely.com/datafiles/VNYQTnLwCpMS1m1YxrQ1f5.json'
+
+
 def get_daily_deal(visitor):
-  return 'Daily Deal: a bluetooth speaker for $99!'
+  datafile = requests.get(DATAFILE_URL).text
+  optimizely_client = optimizely.Optimizely(datafile, skip_json_validation=True)
+  enabled = optimizely_client.is_feature_enabled('sale_price', visitor['userId'])
+
+  if enabled:
+    return 'Daily Deal: a bluetooth speaker for only $29!'
+  else:
+    return 'Daily Deal: a bluetooth speaker for $99!'
+
 
 def main():
   visitors = [
