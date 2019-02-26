@@ -1,3 +1,4 @@
+import requests
 from functools import reduce
 
 def get_daily_deal(visitor):
